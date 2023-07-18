@@ -23,6 +23,7 @@ func Register(ctx *gin.Context) {
 			"errors":  err.Error(),
 			"message": "bind failed!",
 		})
+		return
 	}
 	//查询表中是否有相同的邮箱
 	items, err := db.DB.Query("email", regBody.Email, RegisterTableName)
@@ -31,6 +32,7 @@ func Register(ctx *gin.Context) {
 			"errors":  err.Error(),
 			"message": "query failed!",
 		})
+		return
 	}
 	//fmt.Println(items)
 	if len(items) != 0 {
@@ -38,6 +40,7 @@ func Register(ctx *gin.Context) {
 			"errors":  nil,
 			"message": "this email has been registered!",
 		})
+		return
 	} else {
 		//添加入表
 		err = db.DB.AddRegisterInfo(regBody, RegisterTableName)
@@ -46,6 +49,7 @@ func Register(ctx *gin.Context) {
 				"errors":  err.Error(),
 				"message": "add failed!",
 			})
+			return
 		}
 		ctx.JSON(http.StatusOK, gin.H{
 			"errors":  nil,
@@ -63,6 +67,7 @@ func Delete(ctx *gin.Context) {
 			"errors":  err.Error(),
 			"message": "bind failed!",
 		})
+		return
 	}
 	//查询表中是否有相同的邮箱
 	items, err := db.DB.Query("email", regBody.Email, RegisterTableName)
@@ -71,6 +76,7 @@ func Delete(ctx *gin.Context) {
 			"errors":  err.Error(),
 			"message": "query failed!",
 		})
+		return
 	}
 	if len(items) == 1 {
 		//删除信息
