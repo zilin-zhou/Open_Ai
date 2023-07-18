@@ -1,0 +1,16 @@
+
+userTable: 
+  name: aiWeb_userInfo
+historyTable: 
+  name: aiWeb_history
+detailsTable: 
+  name: aiWeb_details"
+CodeTable: 
+  name: aiWeb_code
+# us-west-2
+registerTable: 
+  name: tb_register
+CodewTable: 
+  name: tb_code
+newRegisterTable: 
+  name: new_tb_register

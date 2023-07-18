@@ -1,0 +1,8 @@
+aws_config: 
+  #region: eu-west-1 
+  region: us-west-2
+  #accessKeyId: AKIATKVC3WRY3DGN2MUN
+  #secretAccessKey: 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
+chatGTP: 
+  ApiKey: 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
+  URL: https://api.openai.com/v1/chat/completions
